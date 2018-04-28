@@ -1,0 +1,48 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "marain.io"
+  },
+  "host": "maraindevfunctextscoringstrategiesget.azurewebsites.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/text/strategy": {
+      "get": {
+        "tags": [
+          "Text"
+        ],
+        "summary": "Text - Retrieve scoring and classification strategies",
+        "operationId": "Text_GetStrategies",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "application/json": [
+                "ComplexDocumentWithManyHits",
+                "ComplexDocumentWithManyHitsSmoothlyDistributeScores",
+                "SimpleDocumentWithFewHits",
+                "SimpleDocumentWithFewHitsSmoothlyDistributeScores"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

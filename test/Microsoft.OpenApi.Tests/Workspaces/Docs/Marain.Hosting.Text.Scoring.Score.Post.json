@@ -1,0 +1,84 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "marain.io"
+  },
+  "host": "maraindevfunctextscoringscorepost.azurewebsites.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/text/score": {
+      "post": {
+        "tags": [
+          "Text"
+        ],
+        "summary": "Text - Score content",
+        "operationId": "Text_Score",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "Contains the configuration for the scoring process and the payload to be evaluated.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ScoringRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Keywords": {
+      "type": "object",
+      "properties": {
+        "Primary": {
+          "type": "string"
+        },
+        "Secondary": {
+          "type": "string"
+        }
+      }
+    },
+    "ScoringRequest": {
+      "type": "object",
+      "properties": {
+        "Keywords": {
+          "$ref": "#/definitions/Keywords"
+        },
+        "Text": {
+          "type": "string"
+        },
+        "Strategy": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "keywords": {
+          "primary": "VM, batch, RemoteApp, \"virtual machine\", \"cloud platform\", \"cloud service\", \"cloud services\", \"cloud computing platform\", infrastructure, PaaS, IaaS, \"Worker Role\", \"Web Role\", VHD, \"linux virtual machine\", \"Nano Server\", \"Service Fabric\", \"vm scale sets\", \"Azure Functions\", VHD, , \"Nano Server\", \"azure container service\"",
+          "secondary": "\"H Series\", \"G Series\", \"Red Hat\""
+        },
+        "text": "Today organizations are turning to the cloud not only to accelerate – but to transform – their business. Platform as a Service (PaaS) enables businesses to innovate at a scale that fuels their business transformation – with a focus on application innovation rather than infrastructure management and maintenance. Microsoft Azure has led the way with PaaS in alignment with our decades long commitment to enable developers with world class tools and services. Part of the Azure PaaS portfolio, Azure Functions, offers a serverless compute experience for rapid application development and operational agility. Released in preview in March 2016, we’re excited to announce the general availability of Azure Functions today.",
+        "strategy": "SimpleDocumentWithFewHits"
+      }
+    }
+  }
+}

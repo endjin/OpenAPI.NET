@@ -12,7 +12,10 @@ using Xunit;
 
 namespace Microsoft.OpenApi.Tests
 {
-    
+    using System.IO;
+
+    using Microsoft.OpenApi.Readers;
+
     public class OpenApiWorkspaceTests
     {
         [Fact]
@@ -139,6 +142,30 @@ namespace Microsoft.OpenApi.Tests
         public void OpenApiWorkspacesShouldNormalizeDocumentLocations()
         {
             Assert.True(false);
+        }
+
+        [Fact]
+        public void CanMergeMultipleAzureFunctionDocumentsIntoADocumentThatCanBeImportedIntoAPIM()
+        {
+            var documents = new[]
+            {
+                @"Workspaces\Docs\Marain.Hosting.Text.Scoring.ExponentialNormalizerScore.Post.json",
+                @"Workspaces\Docs\Marain.Hosting.Text.Scoring.LinearNormalizerScore.Post.json",
+                @"Workspaces\Docs\Marain.Hosting.Text.Scoring.Score.Post.json",
+                @"Workspaces\Docs\Marain.Hosting.Text.Scoring.ScoringTypeDescription.Get.json",
+                @"Workspaces\Docs\Marain.Hosting.Text.Scoring.Strategies.Get.json",
+            };
+
+            var workspace = new OpenApiWorkspace();
+
+            foreach (var document in documents)
+            {
+                var openApiDocument = new OpenApiStreamReader().Read(File.OpenRead(document.ResolveBaseDirectory()), out var context);
+
+                workspace.AddDocument(Guid.NewGuid().ToString(), openApiDocument);
+            }
+
+            Assert.True(true);
         }
 
         // Enable Workspace to load from any reader, not just streams.

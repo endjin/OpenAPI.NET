@@ -1,0 +1,46 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "marain.io"
+  },
+  "host": "maraindevfunctextscoringscoringtypedescriptionget.azurewebsites.net",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/text/score/scoring-types": {
+      "get": {
+        "tags": [
+          "Text"
+        ],
+        "summary": "Text - Retrieve scoring approaches",
+        "operationId": "Text_GetScoringTypeDescription",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "examples": {
+              "application/json": [
+                "ScoreBestFragmentForKeyword",
+                "ScoreDocument"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -28,10 +28,63 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\src\Microsoft.OpenApi.Readers\Microsoft.OpenApi.Readers.csproj" />
         <ProjectReference Include="..\..\src\Microsoft.OpenApi\Microsoft.OpenApi.csproj" />
     </ItemGroup>
 
     <ItemGroup>
         <Reference Include="Microsoft.CSharp" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.ExponentialNormalizerScore.Post.json">
+        <Generator></Generator>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.ExponentialNormalizerScore.Post.yaml">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Marain.Hosting.Text.Scoring.ExponentialNormalizerScore.Post.json</DependentUpon>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.LinearNormalizerScore.Post.json">
+        <Generator></Generator>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.LinearNormalizerScore.Post.yaml">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Marain.Hosting.Text.Scoring.LinearNormalizerScore.Post.json</DependentUpon>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.Score.Post.json">
+        <Generator></Generator>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.Score.Post.yaml">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Marain.Hosting.Text.Scoring.Score.Post.json</DependentUpon>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.ScoringTypeDescription.Get.json">
+        <Generator></Generator>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.ScoringTypeDescription.Get.yaml">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Marain.Hosting.Text.Scoring.ScoringTypeDescription.Get.json</DependentUpon>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.Strategies.Get.json">
+        <Generator></Generator>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Workspaces\Docs\Marain.Hosting.Text.Scoring.Strategies.Get.yaml">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Marain.Hosting.Text.Scoring.Strategies.Get.json</DependentUpon>
+      </None>
+      <None Update="Workspaces\Docs\swagger.json">
+        <Generator>OpenApi3_0JsonToYamlGenerator</Generator>
+        <LastGenOutput>swagger.yaml</LastGenOutput>
+      </None>
     </ItemGroup>
 </Project>
